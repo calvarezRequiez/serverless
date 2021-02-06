@@ -1,7 +1,7 @@
 const express = require('express')
 const Orders = require('../models/Orders')
 
-const router = app.Router()
+const router = express.Router()
 
 router.get('/', (req, res) => {
     Orders.find()
@@ -19,12 +19,12 @@ router.post('/', (req, res) => {
     Orders.create(req.body).then(x => res.status(201).send(x))
 })
 
-router.put('/', (req, res) => {
+router.put('/:id', (req, res) => {
     Orders.findOneAndUpdate(req.params.id, req.body)
     .then(() => res.sendStatus(204))
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
     Orders.findOneAndDelete(req.params.id)
     .exec()
     .then(() => res.sendStatus(204))
