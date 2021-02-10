@@ -21,3 +21,7 @@ ul {
     border-radius: 20px;
     margin: 15px 15px 15px 40px;
 }
+
+#submit:disabled {
+    background-color: #ccc;
+}
